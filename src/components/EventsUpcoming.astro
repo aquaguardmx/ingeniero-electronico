@@ -1,0 +1,31 @@
+---
+import { upcomingEvents } from '../data/events';
+---
+<section id="eventos-proximos" class="relative border-t border-slate-700/50 py-24">
+  <div class="mx-auto max-w-6xl px-4 md:px-6">
+    <h2 class="font-heading text-center text-3xl font-bold text-white md:text-4xl">
+      Eventos <span class="text-amber-400">próximos</span>
+    </h2>
+    <p class="mx-auto mt-3 max-w-2xl text-center text-slate-400">
+      Actividades a las que asistiremos próximamente.
+    </p>
+
+    <div class="mt-16 grid gap-6 md:grid-cols-2">
+      {upcomingEvents.map((event) => (
+        <article class="rounded-2xl border border-slate-700/50 bg-slate-800/30 p-6 transition hover:border-amber-500/30 hover:bg-slate-800/50">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <span class="font-heading text-sm font-medium text-amber-400">{event.date}</span>
+              <h3 class="mt-2 font-heading text-xl font-semibold text-white">{event.title}</h3>
+              {event.place && <p class="mt-1 text-sm text-slate-500">{event.place}</p>}
+              <p class="mt-3 text-slate-400">{event.description}</p>
+            </div>
+            <div class="shrink-0 rounded-lg bg-amber-500/10 px-3 py-1 font-heading text-xs text-amber-400">
+              Próximo
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+---
+const navLinks = [
+  { href: '#equipo', label: 'Equipo' },
+  { href: '#eventos-proximos', label: 'Próximos eventos' },
+  { href: '#eventos-pasados', label: 'Eventos realizados' },
+  { href: '#contacto', label: 'Contacto' },
+];
+---
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-md">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
+    <a href="#" class="font-heading text-lg font-bold tracking-wide text-cyan-400 md:text-xl">
+      Día del <span class="text-amber-400">Ingeniero</span>
+    </a>
+    <ul class="flex items-center gap-6">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-sm font-medium text-slate-300 transition hover:text-cyan-400 md:text-base"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

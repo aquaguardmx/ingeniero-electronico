@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Equipo de ingeniería - Sistemas, Mecánica y Eléctrica' } = Astro.props;
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+    <style is:global>
+      :root {
+        --font-heading: 'Orbitron', sans-serif;
+        --font-body: 'DM Sans', sans-serif;
+        --bg-dark: #0a0e17;
+        --bg-card: #111827;
+        --accent-cyan: #22d3ee;
+        --accent-amber: #f59e0b;
+        --accent-emerald: #10b981;
+        --text-muted: #94a3b8;
+      }
+      body {
+        font-family: var(--font-body);
+        background-color: var(--bg-dark);
+        color: #e2e8f0;
+      }
+      h1, h2, h3, .font-heading {
+        font-family: var(--font-heading);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen antialiased">
+    <slot />
+  </body>
+</html>

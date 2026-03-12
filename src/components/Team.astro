@@ -1,0 +1,43 @@
+---
+import { teamMembers } from '../data/team';
+
+const carreraColors: Record<string, string> = {
+  Sistemas: 'border-emerald-500/50 bg-emerald-500/10 text-emerald-400',
+  Mecánica: 'border-amber-500/50 bg-amber-500/10 text-amber-400',
+  Eléctrica: 'border-cyan-500/50 bg-cyan-500/10 text-cyan-400',
+};
+---
+<section id="equipo" class="relative border-t border-slate-700/50 bg-slate-900/30 py-24">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.02)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+  <div class="relative mx-auto max-w-6xl px-4 md:px-6">
+    <h2 class="font-heading text-center text-3xl font-bold text-white md:text-4xl">
+      Nuestro <span class="text-cyan-400">equipo</span>
+    </h2>
+    <p class="mx-auto mt-3 max-w-2xl text-center text-slate-400">
+      5 estudiantes y una asesora de ingeniería en sistemas, mecánica y eléctrica.
+    </p>
+
+    <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {teamMembers.map((member) => (
+        <article
+          class={`rounded-2xl border bg-slate-800/50 p-6 backdrop-blur-sm transition hover:border-slate-600 hover:shadow-lg hover:shadow-cyan-500/5 ${
+            member.isAdvisor ? 'border-amber-500/40 ring-1 ring-amber-500/20' : 'border-slate-700/50'
+          }`}
+        >
+          <div class="flex items-start gap-4">
+            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-slate-700/80 font-heading text-xl font-bold text-cyan-400">
+              {member.name.charAt(0)}
+            </div>
+            <div class="min-w-0 flex-1">
+              <h3 class="font-heading font-semibold text-white">{member.name}</h3>
+              <p class="text-sm text-slate-400">{member.role}</p>
+              <span class={`mt-2 inline-block rounded-full border px-3 py-0.5 text-xs font-medium ${carreraColors[member.carrera]}`}>
+                {member.carrera}
+              </span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
